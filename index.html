@@ -1,18 +1,18 @@
 <!-- 
-SILENCIAR 
+AUTOPLAY 
 
-Es posible añadir propiedades a tu reproductor de vídeo agregando parámetros de 
-consulta a la URL de YouTube. Por defecto, un vídeo de YouTube no está silenciado, 
-pero puedes silenciarlo usando el parámetro `mute=1` de la siguiente manera:
-https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1
-Observa el signo «?» después de la URL y antes del parámetro de consulta.
+Es posible hacer que tu vídeo comience a reproducirse automáticamente 
+cuando un usuario visite la página; para ello, añade el parámetro de consulta autoplay=1.
+https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1
+Para combinar varias propiedades de consulta, sepárelas con &:
+https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1&autoplay=1
 
-Mute your YouTube player so it won't annoy the users of your web page!
+Haz que tu video también se reproduzca automáticamente. ¡No quites el silencio!
 -->
 <!DOCTYPE html>
 <html>
     <body>
         <!-- Escribe el código aquí -->
-        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=JMzihl_sStA&list=RDJMzihl_sStA&start_radio=1&t=4377s?mute=1"></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=JMzihl_sStA&list=RDJMzihl_sStA&start_radio=1&t=4377s?mute=1&autoplay=1"></iframe>
     </body>
 </html>

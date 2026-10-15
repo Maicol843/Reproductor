@@ -1,16 +1,16 @@
 <!-- 
-LOOP
+CONTROLES
 
-Para reproducir el vídeo en bucle, podemos usar loop=1 como parámetro de consulta, 
-pero no es suficiente; necesitas añadir playlist=id, donde id es el ID del vídeo, por ejemplo:
-https://www.youtube.com/embed/dQw4w9WgXcQ?loop=1&playlist=dQw4w9WgXcQ
+Por último, es posible eliminar los controles del vídeo utilizando controls=0:
+https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0
 
-Haz que tu vídeo se reproduzca en bucle sobre las demás propiedades.
+Además de todo lo que tienes, elimina los controles del vídeo.
+
 -->
 <!DOCTYPE html>
 <html>
     <body>
         <!-- Código corregido para bucle de YouTube -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/JMzihl_sStA?loop=1&playlist=JMzihl_sStA&mute=1&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JMzihl_sStA?loop=1&playlist=JMzihl_sStA&mute=1&autoplay=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </body>
 </html>

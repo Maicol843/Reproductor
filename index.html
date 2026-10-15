@@ -1,18 +1,16 @@
 <!-- 
-AUTOPLAY 
+LOOP
 
-Es posible hacer que tu vídeo comience a reproducirse automáticamente 
-cuando un usuario visite la página; para ello, añade el parámetro de consulta autoplay=1.
-https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1
-Para combinar varias propiedades de consulta, sepárelas con &:
-https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1&autoplay=1
+Para reproducir el vídeo en bucle, podemos usar loop=1 como parámetro de consulta, 
+pero no es suficiente; necesitas añadir playlist=id, donde id es el ID del vídeo, por ejemplo:
+https://www.youtube.com/embed/dQw4w9WgXcQ?loop=1&playlist=dQw4w9WgXcQ
 
-Haz que tu video también se reproduzca automáticamente. ¡No quites el silencio!
+Haz que tu vídeo se reproduzca en bucle sobre las demás propiedades.
 -->
 <!DOCTYPE html>
 <html>
     <body>
-        <!-- Escribe el código aquí -->
-        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=JMzihl_sStA&list=RDJMzihl_sStA&start_radio=1&t=4377s?mute=1&autoplay=1"></iframe>
+        <!-- Código corregido para bucle de YouTube -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JMzihl_sStA?loop=1&playlist=JMzihl_sStA&mute=1&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </body>
 </html>

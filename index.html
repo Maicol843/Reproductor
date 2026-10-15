@@ -1,16 +1,214 @@
-<!-- 
-CONTROLES
-
-Por último, es posible eliminar los controles del vídeo utilizando controls=0:
-https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0
-
-Además de todo lo que tienes, elimina los controles del vídeo.
-
--->
 <!DOCTYPE html>
-<html>
-    <body>
-        <!-- Código corregido para bucle de YouTube -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/JMzihl_sStA?loop=1&playlist=JMzihl_sStA&mute=1&autoplay=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de video de Youtube</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Encabezado a la izquierda */
+        .header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header h2 {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            color: #a8b2d1;
+            font-weight: 400;
+        }
+
+        /* Estructura principal de 2 columnas */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        /* Columna Izquierda: Reproductor + Lista */
+        .left-column {
+            flex: 1 1 560px;
+            max-width: 600px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            background-color: #000;
+        }
+
+        iframe {
+            width: 100%;
+            height: 338px;
+            display: block;
+            border: none;
+        }
+
+        /* Lista de tiempos (timestamps) */
+        .tracklist {
+            margin-top: 25px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .tracklist h3 {
+            margin-top: 0;
+            color: #e63946;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .tracklist ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .tracklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tracklist button {
+            background: #2b2b2b;
+            color: #4ea8de;
+            border: 1px solid #3a3a3a;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 12px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .tracklist button:hover {
+            background: #e63946;
+            color: #ffffff;
+            border-color: #e63946;
+        }
+
+        /* Columna Derecha: Imagen + Descripción */
+        .right-column {
+            flex: 1 1 300px;
+            max-width: 450px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .right-column img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .description {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado a la izquierda -->
+    <div class="header">
+        <h1>INDIO EN CONCIERTO</h1>
+        <h2>Estadio Único de La Plata - 2008</h2>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="main-content">
+        
+        <!-- Columna Izquierda: Reproductor + Lista interactiva -->
+        <div class="left-column">
+            <div class="video-wrapper">
+                <iframe id="videoPlayer" src="https://www.youtube.com/embed/JMzihl_sStA?autoplay=1&enablejsapi=1" title="Indio Solari en Concierto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- Lista de tiempo (Timestamps interactivos con segundos totales exactos) -->
+            <div class="tracklist">
+                <h3>Lista de temas</h3>
+                <p>(Haz clic para ir al minuto)</p>
+                <ul>
+                    <li><button onclick="saltarA(0)">00:00</button> Intro</li>
+                    <li><button onclick="saltarA(155)">02:35</button> Pedía temas en la radio</li>
+                    <li><button onclick="saltarA(385)">06:25</button> Ramas desnudas</li>
+                    <li><button onclick="saltarA(685)">11:25</button> Porco rex</li>
+                    <li><button onclick="saltarA(935)">15:35</button> Fusilados por la cruz roja</li>
+                    <li><button onclick="saltarA(1200)">20:00</button> Un poco de amor francés</li>
+                    <li><button onclick="saltarA(1410)">23:30</button> Bebamos de las copas lindas</li>
+                    <li><button onclick="saltarA(1658)">27:38</button> Pabellón séptimo</li>
+                    <li><button onclick="saltarA(1972)">32:52</button> Martinis y tafiroles</li>
+                    <li><button onclick="saltarA(2158)">35:58</button> Y mientras tanto, el sol se muere</li>
+                    <li><button onclick="saltarA(2431)">40:31</button> Vuelo a Disney</li>
+                    <li><button onclick="saltarA(2712)">45:12</button> Tatuaje</li>
+                    <li><button onclick="saltarA(3009)">50:09</button> Sopa de lágrimas</li>    
+                    <li><button onclick="saltarA(3241)">54:01</button> Te estas quedando sin balas</li>       
+                    <li><button onclick="saltarA(3538)">58:58</button> El infierno esta encantador</li>
+                    <li><button onclick="saltarA(3847)">01:04:07</button> Mariposa pontiac</li>
+                    <li><button onclick="saltarA(4140)">01:09:00</button> El tesoro de los inocentes</li>
+                    <li><button onclick="saltarA(4410)">01:13:30</button> Porqué será que Dios no me quiere?</li>
+                    <li><button onclick="saltarA(4667)">01:17:47</button> To beef or not to beef</li>
+                    <li><button onclick="saltarA(4957)">01:22:37</button> Un ángel para tu soledad</li>
+                    <li><button onclick="saltarA(5188)">01:26:28</button> Nadie es perfecto / Ñam fri fruti fali fru</li>
+                    <li><button onclick="saltarA(5470)">01:31:10</button> Juguetes perdidos</li>
+                    <li><button onclick="saltarA(5895)">01:38:15</button> Flight 956</li>
+                    <li><button onclick="saltarA(6207)">01:43:27</button> Ji ji ji</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Imagen + Descripción -->
+        <div class="right-column">
+            <img src="imagen_1.jpg" alt="Arte de Indio Solari por Inchausti">
+            <p class="description">
+                Brindó un histórico concierto en el marco de la gira de presentación del disco Porco Rex, material que quedó inmortalizado en el doble DVD y CD oficial En concierto (lanzado en 2015).
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Script corregido para actualizar el reproductor correctamente -->
+    <script>
+        function saltarA(segundosTotales) {
+            const player = document.getElementById('videoPlayer');
+            // Forzamos la actualización completa del iframe con el parámetro start correcto
+            player.src = `https://www.youtube.com/embed/JMzihl_sStA?start=${segundosTotales}&autoplay=1`;
+        }
+    </script>
+
+</body>
 </html>
